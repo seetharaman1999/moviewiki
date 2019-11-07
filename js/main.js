@@ -17,7 +17,7 @@ window.onload = function() {
 }
 
 
-function movieSelected(id) {
+function movieSelected(id) {                                                                 //to get the IMDB ID for selected movie
   sessionStorage.setItem('movieId', id);
   window.location = 'movie.html';
   return false;
@@ -32,7 +32,7 @@ input.addEventListener("keyup", function(event) {
   }
 });
 
-function getMovie(){
+function getMovie(){                                                                                  //detailed view of each movie
   let movieId = sessionStorage.getItem('movieId');   
     fetch('http://www.omdbapi.com?apikey=7408dc63&i='+movieId).then(function(response){
     return response.json()
@@ -69,7 +69,7 @@ function getMovie(){
     })
 }
 
-function renderresults(json)
+function renderresults(json)                                                                //to display all the movies which are related to the search text
 {
   let output = '';
   if(json.Search==null)alert("No Movie found");
