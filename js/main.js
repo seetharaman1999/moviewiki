@@ -1,5 +1,5 @@
 function getMovies(searchText){
-    let query='http://www.omdbapi.com/?apikey=7408dc63&s='+searchText;
+    let query='https://www.omdbapi.com/?apikey=7408dc63&s='+searchText;
     fetch(query).then(function(response){
     sessionStorage.setItem("query", searchText);
     return response.json()
@@ -34,7 +34,7 @@ input.addEventListener("keyup", function(event) {
 
 function getMovie(){                                                                                  //detailed view of each movie
   let movieId = sessionStorage.getItem('movieId');   
-    fetch('http://www.omdbapi.com?apikey=7408dc63&i='+movieId).then(function(response){
+    fetch('https://www.omdbapi.com?apikey=7408dc63&i='+movieId).then(function(response){
     return response.json()
   }).then(function(json){
       let output =`
@@ -60,7 +60,7 @@ function getMovie(){                                                            
             <h3>Plot</h3>
             ${json.Plot}
             <hr>
-            <a href="http://imdb.com/title/${json.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
+            <a href="https://imdb.com/title/${json.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
             <a href="index.html#">go back to search</button>
           </div>
         </div>
